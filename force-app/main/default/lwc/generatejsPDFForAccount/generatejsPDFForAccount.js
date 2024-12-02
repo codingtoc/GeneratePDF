@@ -69,7 +69,12 @@ export default class GeneratejsPDFForAccount extends LightningElement {
         doc.text("Account Type: " + this.account.Type, 20, 50);
         doc.text("Account Industry: " + this.account.Industry, 20, 60);
         doc.setLineWidth(0.5);
-        doc.table(20, 70, this.account.Contacts, this.headers, {
+        doc.text(
+          "Related Contacts (" + this.account.Contacts.length + ")",
+          20,
+          75
+        );
+        doc.table(20, 80, this.account.Contacts, this.headers, {
           autoSize: false
         });
         doc.save("download.pdf");
